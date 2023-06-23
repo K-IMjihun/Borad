@@ -25,6 +25,6 @@ public class ResponseController {
     @GetMapping("/json/class")
     @ResponseBody
     public Star helloClassJson() {
-        return new Star("ㅇㅇ", "1231", "Robbie", 95);
+        return new Star("제목", "이름", "PW", "내용");
     }
 }

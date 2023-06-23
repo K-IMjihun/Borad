@@ -21,6 +21,6 @@ public class ResponseRestController {
     //   {"name":"Robbie","age":95}
     @GetMapping("/json/class")
     public Star helloClassJson() {
-        return new Star("ㅇㅇ","1231","Robbie", 95);
+        return new Star("제목", "이름", "pw", "내용");
     }
 }

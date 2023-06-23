@@ -8,7 +8,7 @@ public class Star {
     String name;
     int age;
 
-    public Star(String id, String pw, String name, int age) {
+    public Star(String title, String name,String pw, String content) {
         this.id = id;
         this.pw = pw;
         this.name = name;
