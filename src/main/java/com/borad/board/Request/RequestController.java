@@ -4,6 +4,7 @@ package com.borad.board.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+
 @Controller
 @RequestMapping("/hello/request")
 public class RequestController {
@@ -42,5 +43,37 @@ public class RequestController {
     @ResponseBody
     public String helloPostRequestParam(@RequestParam String name, @RequestParam int age) {
         return String.format("Hello, @RequestParam.<br> name = %s, age = %d", name, age);
+    }
+
+    // [Request sample]
+    // POST http://localhost:8080/hello/request/form/model
+    // Header
+    //  Content type: application/x-www-form-urlencoded
+    // Body
+    //  name=Robbie&age=95
+    @PostMapping("/form/model")
+    @ResponseBody
+    public String helloRequestBodyForm(@ModelAttribute Star star) {
+        return String.format("Hello, @ModelAttribute.<br> (name = %s, age = %d) ", star.name, star.age);
+    }
+
+    // [Request sample]
+    // GET http://localhost:8080/hello/request/form/param/model?name=Robbie&age=95
+    @GetMapping("/form/param/model")
+    @ResponseBody
+    public String helloRequestParam(@ModelAttribute Star star) {
+        return String.format("Hello, @ModelAttribute.<br> (name = %s, age = %d) ", star.name, star.age);
+    }
+
+    // POST http://localhost:8080/hello/request/form/json
+    // Header
+    //  Content type: application/json
+    // Body
+    //  {"name":"Robbie","age":"95"}
+    @PostMapping("/form/json")
+    @ResponseBody
+    // http body부분에 json 형식으로 데이터가 넘어올 때 @RequestBody를 사용
+    public String helloPostRequestJson(@RequestBody Star star) {
+        return String.format("Hello, @RequestBody.<br> (name = %s, age = %d) ", star.name, star.age);
     }
 }
