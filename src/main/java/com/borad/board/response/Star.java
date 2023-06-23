@@ -3,16 +3,16 @@ import lombok.Getter;
 
 @Getter
 public class Star {
-    String id;
-    String pw;
+    String title;
     String name;
-    int age;
+    String PW;
+    String content;
 
-    public Star(String title, String name,String pw, String content) {
-        this.id = id;
-        this.pw = pw;
+    public Star(String title, String name,String PW, String content) {
+        this.title = title;
+        this.PW = PW;
         this.name = name;
-        this.age = age;
+        this.content = content;
     }
 
     public Star() {}
